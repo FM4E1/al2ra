@@ -1,0 +1,132 @@
+
+# FZF.config
+#=========================================================================
+
+
+
+
+
+#=========================================================================
+# Environment Variables ==================================================
+#=========================================================================
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+export FZF_ALT_C_COMMAND='fd --type d --hidden --follow --exclude .git'
+
+#------------------------------------------------->
+# FZF_DEFAULT_OPTS ------------------------------->
+#------------------------------------------------->
+export FZF_DEFAULT_OPTS="
+--height=~75%
+--style=full:sharp
+--layout=default
+--border=sharp
+--info=inline
+--input-label=' Input '
+--pointer='>'
+--color=list-fg:bright-black
+--color=selected-fg:white
+--color=bg:-1
+--color=hl:white:underline
+--color=current-hl:white:underline
+--color=current-fg:black
+--color=current-bg:cyan
+--color=gutter:bright-black
+--color=query:white
+--color=info:cyan
+--color=border:bright-black
+--color=scrollbar:magenta
+--color=separator:cyan
+--color=gap-line:cyan
+--color=label:cyan
+--color=prompt:magenta
+--color=pointer:magenta
+--color=marker:cyan
+--color=spinner:magenta
+--color=header-fg:white
+--preview-window=right,50%
+--header-label=' File Type '
+--bind='?:toggle-preview'
+--preview='[[ -f {} ]] && bat --style=numbers --color=always {} || tree -C {}'
+--bind='result:transform-list-label:
+if [[ -z \$FZF_QUERY ]]; then
+	echo \" \$FZF_MATCH_COUNT Items \"
+else
+	echo \" \$FZF_MATCH_COUNT matches for [\$FZF_QUERY] \"
+fi'
+--bind='focus:transform-preview-label: [[ -n {} ]] && printf \" Previewing [%s] \" {}'
+--bind='focus:+transform-header:file --brief {}'
+"
+
+#------------------------------------------------->
+# FZF_CTRL_T_OPTS -------------------------------->
+#------------------------------------------------->
+export FZF_CTRL_T_OPTS="
+--preview-window=right,50%
+--header-label=' File Type '
+--bind='?:toggle-preview'
+--preview='[[ -f {} ]] && bat --style=numbers --color=always {} || tree -C {}'
+--bind='result:transform-list-label:
+if [[ -z \$FZF_QUERY ]]; then
+	echo \" \$FZF_MATCH_COUNT Items \"
+else
+	echo \" \$FZF_MATCH_COUNT matches for [\$FZF_QUERY] \"
+fi'
+--bind='focus:transform-preview-label: [[ -n {} ]] && printf \" Previewing [%s] \" {}'
+--bind='focus:+transform-header:file --brief {}'
+"
+
+#------------------------------------------------->
+# FZF_CTRL_R_OPTS -------------------------------->
+#------------------------------------------------->
+export FZF_CTRL_R_OPTS="
+--layout=default
+--preview='echo {}'
+--preview-window=up,3,hidden,wrap
+--preview-label=' Previewing '
+--bind='?:toggle-preview'
+--bind='alt-/:change-preview-window(wrap|nowrap)'
+--bind='alt-r:toggle-sort'
+--bind='ctrl-r:ignore'
+--bind='ctrl-/:ignore'
+--bind='result:transform-list-label:
+if [[ -z \$FZF_QUERY ]]; then
+	echo \" \$FZF_MATCH_COUNT Items \"
+else
+	echo \" \$FZF_MATCH_COUNT matches for [\$FZF_QUERY] \"
+fi'
+"
+
+#------------------------------------------------->
+# FZF_ALT_C_OPTS --------------------------------->
+#------------------------------------------------->
+export FZF_ALT_C_OPTS="
+--preview='tree -C {}'
+--preview-window=right,50%
+--preview-label=' Previewing '
+--bind='?:toggle-preview'
+--bind='result:transform-list-label:
+if [[ -z \$FZF_QUERY ]]; then
+	echo \" \$FZF_MATCH_COUNT Items \"
+else
+	echo \" \$FZF_MATCH_COUNT matches for [\$FZF_QUERY] \"
+fi'
+"
+
+#=========================================================================
+# Sourcing ===============================================================
+#=========================================================================
+#source /usr/share/fzf/key-bindings.zsh
+
+#=========================================================================
+# Keybindings ============================================================
+#=========================================================================
+bindkey -r '^T'
+
+bindkey -r '^R'
+
+bindkey '^F' fzf-file-widget
+
+bindkey '^H' fzf-history-widget

@@ -1,0 +1,161 @@
+
+// WAYBAR.config
+//========================================================================
+// The default version of this file is located at /etc/xdg/waybar/config.jsonc.
+
+
+
+
+//========================================================================
+// Format ================================================================
+//========================================================================
+{
+"layer": "top",
+
+"position": "top",
+
+"height": 30,
+
+// "width": 1280,
+
+"spacing": 15, 
+
+//========================================================================
+// Module Positioning ====================================================
+//========================================================================
+"modules-left": [
+"sway/workspaces"
+],
+
+"modules-center": [
+"clock"
+],
+
+"modules-right": [
+"wireplumber",
+"backlight",
+"network",
+"memory",
+"cpu",
+"temperature",
+"battery"
+],
+
+//========================================================================
+// Modules Left ==========================================================
+//========================================================================
+"sway/workspaces": {
+"all-outputs": false,
+"on-click": "activate",
+"disable-scroll": true,
+"sort-by-number": true,
+"format": "{name}",
+"tooltip": false
+},
+
+//========================================================================
+// Modules Middle ========================================================
+//========================================================================
+"clock": {
+"interval": 1,
+"format": "{:%a %I:%M%p %m/%d/%Y}",
+"tooltip": true,
+"tooltip-format": "{:%a %I:%M:%S%p %m/%d/%Y}"
+},
+
+//========================================================================
+// Modules Right =========================================================
+//========================================================================
+"wireplumber": {
+"scroll-step": 0,
+"format": "{icon} {volume}% {format_source}",
+"format-muted": " {format_source}",
+"format-source": " {volume}%",
+"format-source-muted": " ",
+"format-icons": {
+"headphone": " ",
+"hands-free": " ",
+"headset": " ",
+"phone": " ",
+"portable": " ",
+"car": " ",
+"default": ["", " ", " "]
+},
+"tooltip": true,
+"tooltip-format": "{icon} {volume}% {format_source}"
+},
+
+"backlight": {
+"scroll-step": 0,
+"format": "{icon} {percent}%",
+"format-icons": ["", "", "", "", "", "", "", "", ""],
+"tooltip": true,
+"tooltip-format": "{icon} {percent}%"
+},
+
+"network": {
+"interval": 1,
+"format-wifi": " ({signalStrength}%)",
+"format-ethernet": " ",
+"format-disconnected": "⚠ Disconnected",
+"format-disabled": "\uf072 ",
+"tooltip": true,
+"tooltip-format-wifi": "{essid} / {ifname} / {signaldBm}",
+"tooltip-format-ethernet": "{ifname}",
+"tooltip-format-disconnected": "⚠ Disconnected",
+"tooltip-format-disabled": "Airplane Mode: On"
+},
+
+"memory": {
+"interval": 1,
+"format": " {percentage}%",
+"tooltip": true,
+"tooltip-format": "{used:0.1f}GiB Used / {avail:0.1f}GiB Available"
+},
+
+"cpu": {
+"interval": 1,
+"format": " {usage}%",
+"tooltip": true
+},
+
+"temperature": {
+"interval": 1,
+"hwmon-path-abs": "/sys/devices/platform/coretemp.0/hwmon",
+"input-filename": "temp1_input",
+"warning-threshold": 79,
+"critical-threshold": 89,
+"format": "{icon} {temperatureC}°C",
+"format-icons": ["", "", ""],
+"tooltip": true,
+"tooltip-format": " {temperatureC}°C"
+},
+
+"battery":{
+"interval": 1,
+"states": {
+"warning": 20,
+"critical": 10
+},
+"format": "{icon} {capacity}%",
+"format-discharging": "{icon} {capacity}% ",
+"format-charging": " {capacity}% ",
+"format-icons": ["", "", "", "", ""],
+"tooltip": true,
+"tooltip-format": "{timeTo}"
+},
+
+"custom/media": {
+"format": "{icon} {}",
+"return-type": "json",
+"max-length": 40,
+"format-icons": {
+"spotify": "",
+"default": "🎜"
+},
+
+"escape": true,
+"exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
+// "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+    }
+}

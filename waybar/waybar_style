@@ -1,0 +1,190 @@
+
+/* WAYBAR.style */
+/*======================================================================*/
+/* The defailt version of this file is located at /etc/xdg/waybar/style.css. */
+
+
+
+
+* {
+/*======================================================================*/
+/* Font ================================================================*/
+/*======================================================================*/
+    font-family: "JetBrains Mono Nerd Font";
+
+    font-size: 14px;
+}
+
+/*======================================================================*/
+/* Animations ==========================================================*/
+/*======================================================================*/
+@keyframes fade-in {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+
+@keyframes yellow_blink {
+	0% {
+		color: #d1c117;
+	}
+	50% {
+		color: #fcfcfc;
+	}
+	100% {
+		color: #d1c117;
+	}
+}
+
+@keyframes red_blink {
+	0% {
+		color: #d11717;
+	}
+	50% {
+		color: #fcfcfc;
+	}
+	100% {
+		color: #d11717;
+	}
+}
+
+/*======================================================================*/
+/* Waybar ==============================================================*/
+/*======================================================================*/
+window#waybar {
+	animation-name: fade-in;
+    animation-duration: 5s;
+    background: #020202;
+    color: #fcfcfc;
+    border-bottom: 1px solid #1793d1;    
+}
+
+.module {
+	border: none;
+	outline: none;
+	margin: 0;
+	padding: 0;
+	box-shadow: none;
+	background: transparent;
+	color: #fcfcfc;
+}
+
+#waybar .module:hover {
+	color: #7f7f7f;
+}
+
+button {
+	box-shadow: inset 0 -3px transparent;
+	border: 1px solid transparent;
+	outline: none;
+	margin: 2px 5px;
+	padding: 0;
+	border-radius: 0;
+	color: #7f7f7f;
+
+}
+
+button:hover {
+	background: transparent;
+	border: 1px solid #fcfcfc;
+	color: #fcfcfc;
+}
+
+button.focused {
+	background: transparent;
+	color: #1793d1;
+}
+
+/*======================================================================*/
+/* Modules Left ========================================================*/
+/*======================================================================*/
+
+/*======================================================================*/
+/* Modules Middle ======================================================*/
+/*======================================================================*/
+
+/*======================================================================*/
+/* Modules Right =======================================================*/
+/*======================================================================*/
+/*#wireplumber.muted {
+	color: #d18017
+}
+
+#wireplumber.source-muted {
+	color: #d18017;
+}
+
+#network.wifi {
+	color: #fcfcfc;
+}*/
+
+#network.ethernet {
+	color: #1793d1;
+}
+
+#network.disconnected {
+	color: #d11717;
+}
+
+#network.disconnected {
+	animation-name: red_blink;
+	animation-duration: 0.5s;
+	animation-timing-function: linear;
+	animation-iteration-count: 5;
+	animation-direction: alternate;
+}
+	
+#network.disabled {
+	color: #d18017;
+}
+
+#memory {
+	color: #fcfcfc;
+}
+
+#cpu {
+	color: #fcfcfc;
+}
+
+#temperature {
+	color: #fcfcfc;
+}
+
+#temperature.warning {
+	color: #d1c117;
+}
+
+#temperature.critical {
+	color: #d11717;
+}
+
+#battery {
+	color: #fcfcfc;
+}
+
+#battery.warning {
+	color: #d1c117;
+}
+
+#battery.warning:not(.charging) {
+	animation-name: yellow_blink;
+	animation-duration: 1s;
+	animation-timing-function: linear;
+	animation-iteration-count: 3;
+	animation-direction: alternate;
+}
+
+#battery.critical {
+	color: #d11717;
+}
+
+#battery.critical:not(.charging) {
+	animation-name: red_blink;
+	animation-duration: 0.5s;
+	animation-timing-function: linear;
+	animation-iteration-count: 5;
+	animation-direction: alternate;
+}
+
+#battery.charging {
+	color: #17d136;
+}

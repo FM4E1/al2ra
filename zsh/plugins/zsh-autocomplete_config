@@ -1,0 +1,40 @@
+
+# ZSH-AUTOCOMPLETE.config
+#=========================================================================
+
+
+
+
+
+#=========================================================================
+# Sourcing ===============================================================
+#=========================================================================
+#source ~/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+
+#========================================================================
+# Completion Style ======================================================
+#========================================================================
+zstyle ':completion:*' menu select
+
+zstyle ':completion:*' format '%F{cyan}%B%d%f'
+
+zstyle ':completion:*' list-colors 'no=90' 'ma=30;46' 'di=90' 'ln=32' 'fi=34'
+
+#=========================================================================
+# Keybindings ============================================================
+#=========================================================================
+bindkey -M viins '^I' menu-select
+
+bindkey -M viins "$terminfo[kcbt]" menu-select
+
+bindkey -M menuselect "${terminfo[kcub1]}" .backward-char
+
+bindkey -M menuselect "${terminfo[kcuf1]}" .forward-char
+
+bindkey -M menuselect '^[[D' .backward-char '^[OD' .backward-char
+
+bindkey -M menuselect '^[[C' .forward-char '^[OC' .forward-char
+
+bindkey -M menuselect '^M' .accept-line
+
+bindkey -M menuselect '\e' send-break

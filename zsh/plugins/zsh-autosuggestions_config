@@ -1,0 +1,38 @@
+
+# ZSH-AUTOSUGGESTIONS.config
+#=========================================================================
+
+
+
+
+
+#=========================================================================
+# Environment Variables ==================================================
+#=========================================================================
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=100
+
+ZSH_AUTOSUGGEST_COMPLETION_IGNORE="git *"
+
+ZSH_AUTOSUGGEST_PARTIAL_ACCEPT_WIDGETS=(forward-char)
+
+ZSH_AUTOSUGGEST_ACCEPT_WIDGETS=(autosuggest-accept)
+
+ZSH_AUTOSUGGEST_IGNORE_WIDGETS=(autosuggest-toggle)
+
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#7f7f7f"
+
+#=========================================================================
+# Keybindings ============================================================
+#=========================================================================
+bindkey '^[[1;3C' forward-char 
+
+bindkey '^[[1;2C' autosuggest-accept
+
+bindkey '^[[1;3D' autosuggest-toggle
+
+#=========================================================================
+# Sourcing ===============================================================
+#=========================================================================
+#source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh

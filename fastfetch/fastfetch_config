@@ -1,0 +1,179 @@
+
+// FASTFETCH.conf
+//========================================================================
+
+
+
+
+
+//========================================================================
+// General =============================================================== 
+//========================================================================
+{
+	"$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+	"logo": {
+		"source": "arch",
+		"type": "builtin",
+		"color": {
+			"1": "cyan",
+			"2": "cyan"
+		},
+	"padding": {
+		"top": 2,
+		"left": 2
+	}
+},
+
+//========================================================================
+// Display ===============================================================
+//========================================================================
+"display": {
+	"separator": ": ",
+	"color": {
+		"keys": "white",
+		"separator": "#7f7f7f",
+		"output": "cyan"
+	}
+},
+
+//========================================================================
+// Modules ===============================================================
+//========================================================================
+"modules": [
+{
+	"type": "custom",
+	"format": "{#white}┌─────────────────── {#magenta}System {#cyan}───────────────────┐"
+},
+
+{
+	"type": "os",
+	"key": "OS",
+	"format": "{name} {arch}"
+},
+
+{
+	"type": "kernel",
+	"key": "Kernel"
+},
+
+{
+	"type": "bios",
+	"key": "UEFI",
+	"format": "{vendor} {version} {release} {date}"
+},
+
+{
+	"type": "packages",
+	"key": "Packages",
+	"format": "{all} (Pacman)"
+},
+
+{
+	"type": "uptime",
+	"key": "Uptime",
+	"format": "{hours} Hours, {minutes} Minutes, {seconds} Seconds"
+},
+
+{
+	"type": "custom",
+	"format": "{#white}└───────────────────────{#cyan}───────────────────────┘"
+},
+
+"break",
+
+{
+	"type": "custom",
+	"format": "{#white}┌────────────────── {#magenta}Hardware {#cyan}──────────────────┐"
+},
+
+{
+	"type": "host",
+	"key": "Host",
+	"format": "{vendor} {name} {version}"
+},
+
+{
+	"type": "board",
+	"key": "Board",
+	"format": "{vendor} {name} {version}"
+},
+
+{
+	"type": "cpu",
+	"key": "CPU",
+	"format": "{name} @ {freq-max}"
+},
+
+{
+	"type": "gpu",
+	"key": "GPU",
+	"format": "{name} @ {frequency} [{type}]"
+},
+
+{
+	"type": "memory",
+	"key": "RAM",
+	"format": "{total}"
+},
+
+{
+	"type": "display",
+	"key": "Display",
+	"format": ""
+},
+
+{
+	"type": "custom",
+	"format": "{#white}└───────────────────────{#cyan}───────────────────────┘"
+},
+
+"break",
+
+{
+	"type": "custom",
+	"format": "{#white}┌────────────────── {#magenta}Software {#cyan}──────────────────┐"
+},
+
+{
+	"type": "lm",
+	"key": "LM",
+	"format": "{service} {version}"
+},
+
+{
+	"type": "wm",
+	"key": "WM",
+	"format": "{process-name} {version}"
+},
+
+{
+	"type": "terminal",
+	"key": "Terminal",
+	"format": "{process-name} {version}"
+},
+
+{
+	"type": "shell",
+	"key": "Shell",
+	"format": "{process-name} {version}"
+},
+
+{
+	"type": "terminalfont",
+	"key": "Terminal Font",
+	"format": "{name}"
+},
+
+{
+	"type": "custom",
+	"format": "{#white}└───────────────────────{#cyan}───────────────────────┘"
+},
+
+{
+	"type": "colors",
+	"symbol": "square",
+	"paddingLeft": 1
+}
+
+]
+}

@@ -1,0 +1,182 @@
+
+# LY.config
+#=========================================================================
+# The default version of this file is located at at /etc/ly/config.ini.example
+
+
+
+
+#=========================================================================
+# Behavior ===============================================================
+#=========================================================================
+allow_empty_password = true
+
+animation = none
+
+animation_timeout_sec = 0
+
+asterisk = *
+
+auth_fails = 10
+
+auto_login_service = ly-autologin
+
+auto_login_session = null
+
+auto_login_user = null
+
+lang = en
+
+inactivity_delay = 0 
+
+inactivity_cmd = null
+
+min_refresh_delta = 5 
+
+numlock = false
+
+default_input = login
+
+clear_password = false
+
+save = true
+
+service_name = ly
+
+#=========================================================================
+# Positioning ============================================================
+#=========================================================================
+edge_margin = 0
+
+dur_x_offset = 0
+
+dur_y_offset = 0
+
+text_in_center = false
+
+#=========================================================================
+# Colors =================================================================
+#=========================================================================
+bg = 0x00000000
+
+fg = 0x0017c1d1
+
+border_fg = 0x0017c1d1
+
+error_bg = 0x00000000
+
+error_fg = 0x00d11717
+
+full_color = true
+
+#=========================================================================
+# Modules ================================================================
+#=========================================================================
+
+#------------------------------------------------->
+# Clock ------------------------------------------>
+#------------------------------------------------->
+bigclock = none
+
+clock = %a %I:%M%p %m/%d/%Y
+
+#------------------------------------------------->
+# Box -------------------------------------------->
+#------------------------------------------------->
+blank_box = true
+
+box_title = null
+
+margin_box_h = 2
+
+margin_box_v = 1
+
+input_len = 34
+
+initial_info_text = null
+
+hide_borders = false
+
+hide_version_string = false
+
+#------------------------------------------------->
+# Battery ---------------------------------------->
+#------------------------------------------------->
+battery_id = BAT0
+
+#------------------------------------------------->
+# Brightness ------------------------------------->
+#------------------------------------------------->
+brightness_down_cmd = /usr/bin/brightnessctl -q -n s 10%-
+
+# Brightness decrease key, or null to disable
+brightness_down_key = F5
+
+# Brightness increase command
+brightness_up_cmd = /usr/bin/brightnessctl -q -n s +10%
+
+# Brightness increase key, or null to disable
+brightness_up_key = F6
+
+#------------------------------------------------->
+# Power ------------------------------------------>
+#------------------------------------------------->
+shutdown_cmd = /sbin/shutdown -a now
+
+shutdown_key = F1
+
+restart_cmd = /sbin/shutdown -r now
+
+restart_key = F2
+
+sleep_cmd = null
+
+sleep_key = F3
+
+hibernate_cmd = null
+
+hibernate_key = F4
+
+#=========================================================================
+# Key Bindings ===========================================================
+#=========================================================================
+hide_key_hints = false
+
+hide_keyboard_locks = false
+
+vi_mode = false
+
+vi_default_mode = normal
+
+#=========================================================================
+# Important Files ========================================================
+#=========================================================================
+custom_sessions = /etc/ly/custom-sessions
+
+dur_file_path = /etc/ly/example.dur
+
+login_cmd = null
+
+login_defs_path = /etc/login.defs
+
+logout_cmd = null
+
+ly_log = /var/log/ly.log
+
+path = /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+session_log = .local/state/ly-session.log
+
+setup_cmd = /etc/ly/setup.sh
+
+start_cmd = null
+
+waylandsessions = /usr/share/wayland-sessions
+
+x_cmd = /usr/bin/X
+
+xauth_cmd = /usr/bin/xauth
+
+xinitrc = ~/.xinitrc
+
+xsessions = /usr/share/xsessions
